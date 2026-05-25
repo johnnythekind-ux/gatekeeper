@@ -27,7 +27,27 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col bg-slate-950 text-white">
+  <header className="border-b border-slate-800 bg-slate-950">
+    <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+      <a href="/" className="text-lg font-bold">
+        Gatekeeper
+      </a>
+
+      <nav className="flex items-center gap-5 text-sm text-slate-300">
+        <a href="/pricing" className="hover:text-white">
+          Pricing
+        </a>
+
+        <a href="/dashboard" className="hover:text-white">
+          Dashboard
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  {children}
+</body>
     </html>
   );
 }
