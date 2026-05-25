@@ -51,9 +51,9 @@ export async function POST() {
       },
     },
 
-    success_url: "http://localhost:3000/success",
+    success_url: "https://gatekeeper-eight-livid.vercel.app/success",
 
-    cancel_url: "http://localhost:3000/pricing",
+cancel_url: "https://gatekeeper-eight-livid.vercel.app/pricing",
   });
 
   return NextResponse.json({
