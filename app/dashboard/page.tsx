@@ -1,6 +1,7 @@
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import LogoutButton from "@/components/LogoutButton";
+import BillingPortalButton from "@/components/BillingPortalButton";
 
 export default async function DashboardPage() {
   const supabase = await createClient();
@@ -43,6 +44,29 @@ export default async function DashboardPage() {
           <p className="mt-2 text-sm text-slate-400">
             Subscription status: {status}
           </p>
+
+<div className="mt-6 flex flex-wrap gap-3">
+  {subscription?.status === "active" ? (
+    <>
+      <a
+        href="/pro-feature"
+        className="inline-flex items-center rounded-xl bg-green-500 px-5 py-3 text-sm font-medium text-black transition hover:bg-green-400"
+      >
+        Access Pro Feature
+      </a>
+
+      <BillingPortalButton />
+    </>
+  ) : (
+    <a
+      href="/pricing"
+      className="inline-flex items-center rounded-xl bg-white px-5 py-3 text-sm font-medium text-black transition hover:bg-white/90"
+    >
+      Upgrade to Pro
+    </a>
+  )}
+</div>
+
         </div>
       </div>
     </main>
