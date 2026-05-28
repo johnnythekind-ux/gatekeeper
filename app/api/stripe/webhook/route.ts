@@ -81,6 +81,34 @@ export async function POST(req: NextRequest) {
       console.log("Subscription synced to Supabase");
     }
 
+    if (event.type === "customer.subscription.updated") {
+  const subscription = event.data.object as Stripe.Subscription;
+
+  await supabase
+    .from("subscriptions")
+    .update({
+      status: subscription.status,
+      plan: subscription.status === "active" ? "pro" : "free",
+    })
+    .eq("stripe_subscription_id", subscription.id);
+
+  console.log("Subscription updated:", subscription.id, subscription.status);
+}
+
+if (event.type === "customer.subscription.deleted") {
+  const subscription = event.data.object as Stripe.Subscription;
+
+  await supabase
+    .from("subscriptions")
+    .update({
+      status: "canceled",
+      plan: "free",
+    })
+    .eq("stripe_subscription_id", subscription.id);
+
+  console.log("Subscription canceled:", subscription.id);
+}
+
     return NextResponse.json({ received: true });
   } catch (error) {
     console.error("Webhook handler failed:", error);
