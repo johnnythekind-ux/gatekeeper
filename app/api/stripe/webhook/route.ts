@@ -76,6 +76,7 @@ export async function POST(req: NextRequest) {
         status: subscription.status,
         plan: "pro",
         current_period_end: null,
+        updated_at: new Date().toISOString(),
       });
 
       console.log("Subscription synced to Supabase");
@@ -87,9 +88,10 @@ export async function POST(req: NextRequest) {
   await supabase
     .from("subscriptions")
     .update({
-      status: subscription.status,
-      plan: subscription.status === "active" ? "pro" : "free",
-    })
+  status: subscription.status,
+  plan: subscription.status === "active" ? "pro" : "free",
+  updated_at: new Date().toISOString(),
+})
     .eq("stripe_subscription_id", subscription.id);
 
   console.log("Subscription updated:", subscription.id, subscription.status);
@@ -101,9 +103,10 @@ if (event.type === "customer.subscription.deleted") {
   await supabase
     .from("subscriptions")
     .update({
-      status: "canceled",
-      plan: "free",
-    })
+  status: "canceled",
+  plan: "free",
+  updated_at: new Date().toISOString(),
+})
     .eq("stripe_subscription_id", subscription.id);
 
   console.log("Subscription canceled:", subscription.id);
