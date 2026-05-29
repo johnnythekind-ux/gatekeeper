@@ -27,6 +27,8 @@ export async function POST() {
     );
   }
 
+  const appUrl = process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
+
   const session = await stripe.checkout.sessions.create({
     mode: "subscription",
 
@@ -51,9 +53,9 @@ export async function POST() {
       },
     },
 
-    success_url: "https://gatekeeper-eight-livid.vercel.app/success",
+    success_url: `${appUrl}/success`,
 
-cancel_url: "https://gatekeeper-eight-livid.vercel.app/pricing",
+cancel_url: `${appUrl}/pricing`,
   });
 
   return NextResponse.json({

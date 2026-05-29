@@ -15,10 +15,12 @@ export default async function DashboardPage() {
   }
 
   const { data: subscription } = await supabase
-    .from("subscriptions")
-    .select("plan, status")
-    .eq("user_id", user.id)
-    .maybeSingle();
+  .from("subscriptions")
+  .select("plan, status, updated_at")
+  .eq("user_id", user.id)
+  .order("updated_at", { ascending: false })
+  .limit(1)
+  .maybeSingle();
 
   const plan = subscription?.plan ?? "free";
   const status = subscription?.status ?? "inactive";
