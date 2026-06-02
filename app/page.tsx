@@ -116,6 +116,42 @@ export default function Home() {
     deployment workflows.
   </p>
 </section>
+
+<section className="mx-auto max-w-6xl px-6 pb-24">
+  <h2 className="mb-8 text-center text-3xl font-bold">
+    What This Project Demonstrates
+  </h2>
+
+  <div className="grid gap-4 md:grid-cols-4">
+    <div className="rounded-2xl border border-slate-800 bg-slate-900 p-6">
+      <h3 className="font-bold">Authentication</h3>
+      <p className="mt-3 text-sm text-slate-300">
+        Supabase Auth, user sessions, protected dashboard access.
+      </p>
+    </div>
+
+    <div className="rounded-2xl border border-slate-800 bg-slate-900 p-6">
+      <h3 className="font-bold">Billing</h3>
+      <p className="mt-3 text-sm text-slate-300">
+        Stripe Checkout, recurring subscriptions, and billing portal access.
+      </p>
+    </div>
+
+    <div className="rounded-2xl border border-slate-800 bg-slate-900 p-6">
+      <h3 className="font-bold">Webhooks</h3>
+      <p className="mt-3 text-sm text-slate-300">
+        Stripe event processing with subscription sync into Supabase.
+      </p>
+    </div>
+
+    <div className="rounded-2xl border border-slate-800 bg-slate-900 p-6">
+      <h3 className="font-bold">Authorization</h3>
+      <p className="mt-3 text-sm text-slate-300">
+        Entitlement checks that control access to premium features.
+      </p>
+    </div>
+  </div>
+</section>
     </main>
   );
 }
