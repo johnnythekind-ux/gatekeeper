@@ -16,10 +16,12 @@ export async function POST() {
   }
 
   const { data: subscription, error } = await supabase
-    .from("subscriptions")
-    .select("stripe_customer_id")
-    .eq("user_id", user.id)
-    .maybeSingle();
+  .from("subscriptions")
+  .select("stripe_customer_id, updated_at")
+  .eq("user_id", user.id)
+  .order("updated_at", { ascending: false })
+  .limit(1)
+  .maybeSingle();
 
   if (error || !subscription?.stripe_customer_id) {
     return NextResponse.json(
