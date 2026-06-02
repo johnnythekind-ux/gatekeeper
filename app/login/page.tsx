@@ -31,11 +31,15 @@ export default function LoginPage() {
   return (
     <main className="min-h-screen bg-slate-950 px-6 py-16 text-white">
       <div className="mx-auto max-w-md">
-        <h1 className="text-4xl font-bold">Log in</h1>
+        <h1 className="text-4xl font-bold">Sign In</h1>
 
         <p className="mt-4 text-slate-300">
-          Access your billing dashboard, subscription status, and plan controls.
+          Access your account, subscription dashboard, billing portal, and protected features.
         </p>
+
+        <p className="mt-2 text-sm text-slate-400">
+  Portfolio demonstration using Supabase Authentication and PostgreSQL.
+</p>
 
         <form onSubmit={handleLogin} className="mt-8 space-y-4">
           <input
@@ -60,7 +64,7 @@ export default function LoginPage() {
             type="submit"
             className="w-full rounded-xl bg-white px-4 py-3 font-semibold text-slate-950"
           >
-            Log in
+            Sign In
           </button>
         </form>
       </div>
