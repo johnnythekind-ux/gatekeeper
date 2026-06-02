@@ -68,7 +68,11 @@ export default async function DashboardPage() {
     </a>
   )}
 
-  <div className="mt-8 grid gap-4 md:grid-cols-3">
+  <h2 className="mt-10 mb-6 text-xl font-semibold">
+  Portfolio Architecture Overview
+</h2>
+
+  <div className="mt-0 grid gap-4 md:grid-cols-3">
   <div className="rounded-2xl border border-slate-800 bg-slate-900 p-6">
     <h2 className="text-lg font-bold">Subscription Infrastructure</h2>
     <ul className="mt-4 space-y-2 text-sm text-slate-300">
