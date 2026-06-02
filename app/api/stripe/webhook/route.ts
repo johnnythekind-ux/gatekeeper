@@ -90,6 +90,15 @@ export async function POST(req: NextRequest) {
     .update({
   status: subscription.status,
   plan: subscription.status === "active" ? "pro" : "free",
+
+  cancel_at:
+    subscription.cancel_at
+      ? new Date(subscription.cancel_at * 1000).toISOString()
+      : null,
+
+  cancel_at_period_end:
+    subscription.cancel_at_period_end,
+
   updated_at: new Date().toISOString(),
 })
     .eq("stripe_subscription_id", subscription.id);
