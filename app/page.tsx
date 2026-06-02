@@ -2,9 +2,9 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-slate-950 text-white">
       <section className="mx-auto flex min-h-screen max-w-6xl flex-col items-center justify-center px-6 text-center">
-        <p className="mb-4 rounded-full border border-slate-700 px-4 py-2 text-sm text-slate-300">
-          CRS Mechanical App #5
-        </p>
+        <p className="mb-4 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-4 py-2 text-sm text-emerald-300">
+  Portfolio SaaS Demonstration
+</p>
 
         <h1 className="max-w-4xl text-5xl font-bold tracking-tight md:text-7xl">
           Gatekeeper
@@ -31,6 +31,91 @@ export default function Home() {
           </a>
         </div>
       </section>
+      <section className="mx-auto max-w-6xl px-6 pb-20">
+  <h2 className="mb-8 text-center text-3xl font-bold">
+    Key Features
+  </h2>
+
+  <div className="grid gap-4 md:grid-cols-2">
+    <div className="rounded-xl border border-slate-800 p-4">
+      ✓ Stripe Checkout Integration
+    </div>
+
+    <div className="rounded-xl border border-slate-800 p-4">
+      ✓ Stripe Billing Portal
+    </div>
+
+    <div className="rounded-xl border border-slate-800 p-4">
+      ✓ Webhook Event Processing
+    </div>
+
+    <div className="rounded-xl border border-slate-800 p-4">
+      ✓ Subscription State Synchronization
+    </div>
+
+    <div className="rounded-xl border border-slate-800 p-4">
+      ✓ Protected Premium Features
+    </div>
+
+    <div className="rounded-xl border border-slate-800 p-4">
+      ✓ Supabase Authentication
+    </div>
+
+    <div className="rounded-xl border border-slate-800 p-4">
+      ✓ Entitlement Logic
+    </div>
+
+    <div className="rounded-xl border border-slate-800 p-4">
+      ✓ Production Deployment on Vercel
+    </div>
+  </div>
+</section>
+
+<section className="mx-auto max-w-6xl px-6 pb-20">
+  <h2 className="mb-8 text-center text-3xl font-bold">
+    Tech Stack
+  </h2>
+
+  <div className="flex flex-wrap justify-center gap-3">
+    <span className="rounded-full border border-slate-700 px-4 py-2">
+      Next.js
+    </span>
+
+    <span className="rounded-full border border-slate-700 px-4 py-2">
+      TypeScript
+    </span>
+
+    <span className="rounded-full border border-slate-700 px-4 py-2">
+      Stripe
+    </span>
+
+    <span className="rounded-full border border-slate-700 px-4 py-2">
+      Supabase
+    </span>
+
+    <span className="rounded-full border border-slate-700 px-4 py-2">
+      PostgreSQL
+    </span>
+
+    <span className="rounded-full border border-slate-700 px-4 py-2">
+      Vercel
+    </span>
+  </div>
+</section>
+
+<section className="mx-auto max-w-4xl px-6 pb-24 text-center">
+  <h2 className="mb-6 text-3xl font-bold">
+    What This Demonstrates
+  </h2>
+
+  <p className="text-lg text-slate-300">
+    Gatekeeper demonstrates a complete SaaS billing and
+    entitlement architecture including authentication,
+    subscription management, Stripe webhooks, billing
+    portal integration, protected routes, and production
+    deployment workflows.
+  </p>
+</section>
     </main>
   );
 }
