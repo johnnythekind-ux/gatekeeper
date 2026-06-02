@@ -49,9 +49,9 @@ export default function RootLayout({
     Dashboard
   </a>
 
-  <a href="/signin" className="hover:text-white">
-    Sign In
-  </a>
+  <a href="/login" className="hover:text-white">
+  Sign In
+</a>
 
   <a
     href="/signup"
