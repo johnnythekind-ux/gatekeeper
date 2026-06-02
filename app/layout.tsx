@@ -65,6 +65,18 @@ export default function RootLayout({
   </header>
 
   {children}
+
+  <footer className="border-t border-slate-800 bg-slate-950 px-6 py-10 text-center text-sm text-slate-400">
+  <p className="font-semibold text-white">Gatekeeper™</p>
+  <p className="mt-2">Portfolio SaaS Demonstration</p>
+  <p className="mt-4">
+    Built with Next.js, TypeScript, Stripe, Supabase, PostgreSQL, and Vercel.
+  </p>
+  <p className="mt-2">
+    Demonstrates authentication, billing, webhooks, entitlements, and protected routes.
+  </p>
+</footer>
+
 </body>
     </html>
   );
