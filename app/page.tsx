@@ -1,7 +1,7 @@
 export default function Home() {
   return (
     <main className="min-h-screen bg-slate-950 text-white">
-      <section className="mx-auto flex min-h-screen max-w-6xl flex-col items-center justify-center px-6 text-center">
+      <section className="mx-auto flex max-w-6xl flex-col items-center px-6 pt-24 pb-16 text-center">
         <p className="mb-4 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-4 py-2 text-sm text-emerald-300">
   Portfolio SaaS Demonstration
 </p>
@@ -35,7 +35,7 @@ export default function Home() {
           </a>
         </div>
       </section>
-      <section className="mx-auto max-w-6xl px-6 pb-20">
+      <section className="mx-auto max-w-6xl px-6 pb-12">
   <h2 className="mb-8 text-center text-3xl font-bold">
     Key Features
   </h2>
@@ -105,20 +105,6 @@ export default function Home() {
       Vercel
     </span>
   </div>
-</section>
-
-<section className="mx-auto max-w-4xl px-6 pb-24 text-center">
-  <h2 className="mb-6 text-3xl font-bold">
-    What This Demonstrates
-  </h2>
-
-  <p className="text-lg text-slate-300">
-    Gatekeeper demonstrates a complete SaaS billing and
-    entitlement architecture including authentication,
-    subscription management, Stripe webhooks, billing
-    portal integration, protected routes, and production
-    deployment workflows.
-  </p>
 </section>
 
 <section className="mx-auto max-w-6xl px-6 pb-24">
