@@ -10,6 +10,10 @@ export default function Home() {
           Gatekeeper
         </h1>
 
+        <p className="mt-4 text-sm uppercase tracking-widest text-emerald-400">
+  Authentication • Billing • Entitlements • Webhooks
+</p>
+
         <p className="mt-6 max-w-2xl text-lg text-slate-300">
           SaaS billing, subscriptions, webhooks, entitlement logic, and usage
           enforcement in one production-style infrastructure app.
