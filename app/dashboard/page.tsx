@@ -67,6 +67,40 @@ export default async function DashboardPage() {
       Upgrade to Pro
     </a>
   )}
+
+  <div className="mt-8 grid gap-4 md:grid-cols-3">
+  <div className="rounded-2xl border border-slate-800 bg-slate-900 p-6">
+    <h2 className="text-lg font-bold">Subscription Infrastructure</h2>
+    <ul className="mt-4 space-y-2 text-sm text-slate-300">
+      <li>✓ Stripe Checkout</li>
+      <li>✓ Stripe Webhooks</li>
+      <li>✓ Stripe Billing Portal</li>
+      <li>✓ Supabase Authentication</li>
+      <li>✓ Entitlement Enforcement</li>
+      <li>✓ PostgreSQL Persistence</li>
+    </ul>
+  </div>
+
+  <div className="rounded-2xl border border-slate-800 bg-slate-900 p-6">
+    <h2 className="text-lg font-bold">System Architecture</h2>
+    <div className="mt-4 space-y-2 text-sm text-slate-300">
+      <p>Frontend: Next.js + TypeScript</p>
+      <p>Auth: Supabase Auth</p>
+      <p>Database: PostgreSQL</p>
+      <p>Payments: Stripe</p>
+      <p>Deployment: Vercel</p>
+    </div>
+  </div>
+
+  <div className="rounded-2xl border border-slate-800 bg-slate-900 p-6">
+    <h2 className="text-lg font-bold">About This Project</h2>
+    <p className="mt-4 text-sm leading-6 text-slate-300">
+      Gatekeeper is a portfolio SaaS application demonstrating subscription billing,
+      authentication, entitlement logic, webhook processing, and protected feature access.
+    </p>
+  </div>
+</div>
+
 </div>
 
         </div>
