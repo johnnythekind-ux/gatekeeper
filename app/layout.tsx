@@ -31,9 +31,9 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col bg-slate-950 text-white">
   <header className="border-b border-slate-800 bg-slate-950">
     <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-      <a href="/" className="text-lg font-bold">
-        Gatekeeper™
-      </a>
+      <a href="/" className="text-lg font-bold text-white">
+  Gatekeeper™
+</a>
 
       <nav className="flex items-center gap-5 text-sm text-slate-300">
 

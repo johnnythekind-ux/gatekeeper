@@ -15,15 +15,16 @@ export default async function DashboardPage() {
   }
 
   const { data: subscription } = await supabase
-  .from("subscriptions")
-  .select("plan, status, updated_at")
-  .eq("user_id", user.id)
-  .order("updated_at", { ascending: false })
-  .limit(1)
-  .maybeSingle();
+    .from("subscriptions")
+    .select("plan, status, updated_at")
+    .eq("user_id", user.id)
+    .order("updated_at", { ascending: false })
+    .limit(1)
+    .maybeSingle();
 
   const plan = subscription?.plan ?? "free";
   const status = subscription?.status ?? "inactive";
+  const isActive = subscription?.status === "active";
 
   return (
     <main className="min-h-screen bg-slate-950 px-6 py-16 text-white">
@@ -40,74 +41,117 @@ export default async function DashboardPage() {
           <LogoutButton />
         </div>
 
-        <div className="mt-8 rounded-2xl border border-slate-800 bg-slate-900 p-6">
-          <p className="text-sm text-slate-400">Current Plan</p>
-          <p className="mt-2 text-2xl font-bold capitalize">{plan}</p>
-          <p className="mt-2 text-sm text-slate-400">
-            Subscription status: {status}
+        <section className="mt-8 rounded-2xl border border-slate-800 bg-slate-900 p-6">
+          <p className="text-xs font-semibold uppercase tracking-widest text-emerald-400">
+            Entitlement Status
           </p>
 
-<div className="mt-6 flex flex-wrap gap-3">
-  {subscription?.status === "active" ? (
-    <>
-      <a
-        href="/pro-feature"
-        className="inline-flex items-center rounded-xl bg-green-500 px-5 py-3 text-sm font-medium text-black transition hover:bg-green-400"
-      >
-        Access Pro Feature
-      </a>
+          <p className="mt-2 text-sm text-slate-400">Current Plan</p>
 
-      <BillingPortalButton />
-    </>
-  ) : (
-    <a
-      href="/pricing"
-      className="inline-flex items-center rounded-xl bg-white px-5 py-3 text-sm font-medium text-black transition hover:bg-white/90"
-    >
-      Upgrade to Pro
-    </a>
-  )}
+          <div className="mt-3 flex flex-wrap items-center gap-3">
+            <span className="rounded-full bg-emerald-500/20 px-3 py-1 text-sm font-semibold uppercase text-emerald-400">
+              {plan}
+            </span>
 
-  <h2 className="mt-10 mb-6 text-xl font-semibold">
-  Portfolio Architecture Overview
-</h2>
+            <span className="text-sm text-slate-400">
+              Subscription status: {status}
+            </span>
+          </div>
 
-  <div className="mt-0 grid gap-4 md:grid-cols-3">
-  <div className="rounded-2xl border border-slate-800 bg-slate-900 p-6">
-    <h2 className="text-lg font-bold">Subscription Infrastructure</h2>
-    <ul className="mt-4 space-y-2 text-sm text-slate-300">
-      <li>✓ Stripe Checkout</li>
-      <li>✓ Stripe Webhooks</li>
-      <li>✓ Stripe Billing Portal</li>
-      <li>✓ Supabase Authentication</li>
-      <li>✓ Entitlement Enforcement</li>
-      <li>✓ PostgreSQL Persistence</li>
-    </ul>
-  </div>
+          <div className="mt-6 flex flex-wrap gap-3">
+            {isActive ? (
+              <>
+                <a
+                  href="/pro-feature"
+                  className="inline-flex items-center rounded-xl bg-green-500 px-5 py-3 text-sm font-medium text-black transition hover:bg-green-400"
+                >
+                  Access Protected Feature
+                </a>
 
-  <div className="rounded-2xl border border-slate-800 bg-slate-900 p-6">
-    <h2 className="text-lg font-bold">System Architecture</h2>
-    <div className="mt-4 space-y-2 text-sm text-slate-300">
-      <p>Frontend: Next.js + TypeScript</p>
-      <p>Auth: Supabase Auth</p>
-      <p>Database: PostgreSQL</p>
-      <p>Payments: Stripe</p>
-      <p>Deployment: Vercel</p>
-    </div>
-  </div>
+                <BillingPortalButton />
+              </>
+            ) : (
+              <a
+                href="/pricing"
+                className="inline-flex items-center rounded-xl bg-white px-5 py-3 text-sm font-medium text-black transition hover:bg-white/90"
+              >
+                Upgrade to Pro
+              </a>
+            )}
+          </div>
+        </section>
 
-  <div className="rounded-2xl border border-slate-800 bg-slate-900 p-6">
-    <h2 className="text-lg font-bold">About This Project</h2>
-    <p className="mt-4 text-sm leading-6 text-slate-300">
-      Gatekeeper is a portfolio SaaS application demonstrating subscription billing,
-      authentication, entitlement logic, webhook processing, and protected feature access.
-    </p>
-  </div>
-</div>
+        <section className="mt-6 grid gap-4 md:grid-cols-3">
+          <div className="rounded-2xl border border-slate-800 bg-slate-900 p-5">
+            <p className="text-xs uppercase tracking-widest text-slate-500">
+              Access
+            </p>
+            <p className="mt-2 text-xl font-semibold text-emerald-400">
+              {isActive ? "Granted" : "Limited"}
+            </p>
+          </div>
 
-</div>
+          <div className="rounded-2xl border border-slate-800 bg-slate-900 p-5">
+            <p className="text-xs uppercase tracking-widest text-slate-500">
+              Billing
+            </p>
+            <p className="mt-2 text-xl font-semibold text-emerald-400">
+              {isActive ? "Enabled" : "Inactive"}
+            </p>
+          </div>
 
-        </div>
+          <div className="rounded-2xl border border-slate-800 bg-slate-900 p-5">
+            <p className="text-xs uppercase tracking-widest text-slate-500">
+              Protection
+            </p>
+            <p className="mt-2 text-xl font-semibold text-emerald-400">
+              {isActive ? "Active" : "Restricted"}
+            </p>
+          </div>
+        </section>
+
+        <section className="mt-10">
+          <h2 className="mb-6 text-xl font-semibold">
+            Subscription Architecture Overview
+          </h2>
+
+          <div className="grid gap-4 md:grid-cols-3">
+            <div className="rounded-2xl border border-slate-800 bg-slate-900 p-6">
+              <h3 className="text-lg font-bold">Billing Infrastructure</h3>
+
+              <ul className="mt-4 space-y-2 text-sm text-slate-300">
+                <li>✓ Stripe Checkout</li>
+                <li>✓ Stripe Webhooks</li>
+                <li>✓ Stripe Billing Portal</li>
+                <li>✓ Supabase Authentication</li>
+                <li>✓ Entitlement Enforcement</li>
+                <li>✓ PostgreSQL Persistence</li>
+              </ul>
+            </div>
+
+            <div className="rounded-2xl border border-slate-800 bg-slate-900 p-6">
+              <h3 className="text-lg font-bold">Technology Stack</h3>
+
+              <div className="mt-4 space-y-2 text-sm text-slate-300">
+                <p>Frontend: Next.js + TypeScript</p>
+                <p>Auth: Supabase Auth</p>
+                <p>Database: PostgreSQL</p>
+                <p>Payments: Stripe</p>
+                <p>Deployment: Vercel</p>
+              </div>
+            </div>
+
+            <div className="rounded-2xl border border-slate-800 bg-slate-900 p-6">
+              <h3 className="text-lg font-bold">What This Demonstrates</h3>
+
+              <p className="mt-4 text-sm leading-6 text-slate-300">
+                Demonstrates authentication, subscription billing, Stripe
+                webhooks, entitlement enforcement, protected routes, customer
+                billing management, and production deployment workflows.
+              </p>
+            </div>
+          </div>
+        </section>
       </div>
     </main>
   );

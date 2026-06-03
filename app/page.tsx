@@ -15,8 +15,9 @@ export default function Home() {
 </p>
 
         <p className="mt-6 max-w-2xl text-lg text-slate-300">
-          SaaS billing, subscriptions, webhooks, entitlement logic, and usage
-          enforcement in one production-style infrastructure app.
+          Production-ready SaaS infrastructure demonstrating Stripe billing,
+Supabase authentication, webhook processing, entitlement enforcement,
+and protected feature access.
         </p>
 
         <div className="mt-10 flex flex-col gap-4 sm:flex-row">
