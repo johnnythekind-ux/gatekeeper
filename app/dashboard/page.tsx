@@ -65,7 +65,7 @@ export default async function DashboardPage() {
                   href="/pro-feature"
                   className="inline-flex items-center rounded-xl bg-green-500 px-5 py-3 text-sm font-medium text-black transition hover:bg-green-400"
                 >
-                  Access Protected Feature
+                  View Protected Feature
                 </a>
 
                 <BillingPortalButton />
@@ -82,33 +82,33 @@ export default async function DashboardPage() {
         </section>
 
         <section className="mt-6 grid gap-4 md:grid-cols-3">
-          <div className="rounded-2xl border border-slate-800 bg-slate-900 p-5">
-            <p className="text-xs uppercase tracking-widest text-slate-500">
-              Access
-            </p>
-            <p className="mt-2 text-xl font-semibold text-emerald-400">
-              {isActive ? "Granted" : "Limited"}
-            </p>
-          </div>
+  <div className="rounded-2xl border border-slate-800 bg-slate-900 p-5">
+    <p className="text-xs uppercase tracking-widest text-slate-500">
+      Plan
+    </p>
+    <p className="mt-2 text-xl font-semibold text-emerald-400">
+      {plan.toUpperCase()}
+    </p>
+  </div>
 
-          <div className="rounded-2xl border border-slate-800 bg-slate-900 p-5">
-            <p className="text-xs uppercase tracking-widest text-slate-500">
-              Billing
-            </p>
-            <p className="mt-2 text-xl font-semibold text-emerald-400">
-              {isActive ? "Enabled" : "Inactive"}
-            </p>
-          </div>
+  <div className="rounded-2xl border border-slate-800 bg-slate-900 p-5">
+    <p className="text-xs uppercase tracking-widest text-slate-500">
+      Billing
+    </p>
+    <p className="mt-2 text-xl font-semibold text-emerald-400">
+      {isActive ? "Active" : "Inactive"}
+    </p>
+  </div>
 
-          <div className="rounded-2xl border border-slate-800 bg-slate-900 p-5">
-            <p className="text-xs uppercase tracking-widest text-slate-500">
-              Protection
-            </p>
-            <p className="mt-2 text-xl font-semibold text-emerald-400">
-              {isActive ? "Active" : "Restricted"}
-            </p>
-          </div>
-        </section>
+  <div className="rounded-2xl border border-slate-800 bg-slate-900 p-5">
+    <p className="text-xs uppercase tracking-widest text-slate-500">
+      Entitlements
+    </p>
+    <p className="mt-2 text-xl font-semibold text-emerald-400">
+      {isActive ? "Verified" : "Restricted"}
+    </p>
+  </div>
+</section>
 
         <section className="mt-10">
           <h2 className="mb-6 text-xl font-semibold">
