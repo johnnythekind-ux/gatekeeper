@@ -1,36 +1,206 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Gatekeeper™
 
-## Getting Started
+### Authentication • Billing • Entitlements • Webhooks
 
-First, run the development server:
+Gatekeeper is a production-ready SaaS infrastructure demonstration built with Next.js, TypeScript, Supabase, PostgreSQL, Stripe, and Vercel.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+The project showcases the complete subscription lifecycle used by modern SaaS applications, including authentication, subscription billing, webhook processing, entitlement enforcement, protected routes, and customer billing management.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project Overview
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Gatekeeper demonstrates how a real SaaS application controls access to premium functionality through authentication and subscription verification.
 
-## Learn More
+The platform allows users to:
 
-To learn more about Next.js, take a look at the following resources:
+* Create accounts
+* Authenticate securely
+* Purchase subscriptions through Stripe Checkout
+* Manage billing through the Stripe Billing Portal
+* Synchronize subscription state through webhooks
+* Access protected premium features
+* Enforce server-side entitlements
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Screenshots
 
-## Deploy on Vercel
+### Home Page
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+![Home Page](public/screenshots/01-home.png)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Marketing landing page introducing the application and demonstrated architecture.
+
+### Pricing Page
+
+![Pricing Page](public/screenshots/02-pricing.png)
+
+Subscription plans with Stripe Checkout integration.
+
+### Dashboard
+
+![Dashboard](public/screenshots/03-dashboard.png)
+
+Authenticated workspace displaying subscription status, billing controls, and entitlement information.
+
+### Protected Feature
+
+![Protected Feature](public/screenshots/04-pro-feature.png)
+
+Server-side protected route demonstrating entitlement enforcement and premium feature access.
+
+---
+
+## Features Demonstrated
+
+### Authentication
+
+* User registration
+* User login
+* User logout
+* Protected dashboard access
+
+### Subscription Billing
+
+* Stripe Checkout integration
+* Subscription creation
+* Subscription lifecycle management
+* Billing Portal integration
+
+### Webhook Processing
+
+* Checkout completion handling
+* Subscription updates
+* Subscription cancellations
+* Database synchronization
+
+### Entitlements
+
+* Server-side access verification
+* Protected route enforcement
+* Active subscription validation
+* Premium feature gating
+
+### Production Deployment
+
+* Vercel deployment
+* Environment variable management
+* Supabase integration
+* Stripe production workflow
+
+---
+
+## Architecture Flow
+
+Visitor
+
+↓
+
+Create Account
+
+↓
+
+Authenticate
+
+↓
+
+Access Dashboard
+
+↓
+
+Purchase Subscription
+
+↓
+
+Stripe Checkout
+
+↓
+
+Webhook Processing
+
+↓
+
+Subscription Synchronization
+
+↓
+
+Entitlement Verification
+
+↓
+
+Protected Feature Access
+
+↓
+
+Billing Portal Management
+
+---
+
+## Technology Stack
+
+### Frontend
+
+* Next.js
+* TypeScript
+* Tailwind CSS
+
+### Authentication
+
+* Supabase Auth
+
+### Database
+
+* PostgreSQL
+* Supabase
+
+### Billing
+
+* Stripe Checkout
+* Stripe Billing Portal
+* Stripe Webhooks
+
+### Hosting
+
+* Vercel
+
+---
+
+## Portfolio Value
+
+Gatekeeper demonstrates the foundational infrastructure required by modern SaaS applications.
+
+Concepts demonstrated include:
+
+* Authentication
+* Authorization
+* Subscription Billing
+* Entitlements
+* Protected Routes
+* Webhook Processing
+* Customer Self-Service Billing
+* Environment Management
+* Production Deployment
+
+This project serves as a reusable foundation for future platform applications and portfolio projects.
+
+---
+
+## Future Applications
+
+The architecture and patterns demonstrated in Gatekeeper will be reused across future projects including:
+
+* VaultDesk
+* AppStack
+* InvestorOS
+* Acquisition IQ
+* DealFlow AI
+* SellerMind
+
+---
+
+## Author
+
+Johnny Groves
+
+Portfolio SaaS Demonstration Project
